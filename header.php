@@ -1,12 +1,15 @@
 <!DOCTYPE html>
+<html <?php language_attributes(); ?>>
 <head>
-<meta charset="utf-8" />
+<meta charset="<?php bloginfo('charset'); ?>" />
 <meta name="viewport" content="width=device-width" />
-<title>WordPress Theme Building - Creating a WordPress theme from static HTML</title>
+<title><?php wp_title(); ?> - <?php bloginfo('name'); ?></title>
+<meta name="description" content="<?php bloginfo('description'); ?>">
 <link rel="stylesheet" media="all" href="<?php bloginfo('template_url'); ?>/main.css" />
+<?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 
 	<header role="banner">
 
@@ -35,11 +38,17 @@
 	<nav class="menu main">
 	  <?php /*  Allow screen readers / text browsers to skip the navigation menu and get right to the good stuff */ ?>
 		<div class="skip-link screen-reader-text"><a href="#content" title="Skip to content">Skip to content</a></div>
-		<ul>
+		<!-- <ul>
 			<li><a href="#">Home</a></li>
 			<li><a href="#">Latest news</a></li>
 			<li><a href="#">Featured articles</a></li>
-		</ul>
+		</ul> -->
+
+    <?php
+      wp_nav_menu( array(
+        'theme_location' => 'main_menu'
+      ) );
+    ?>
 	</nav><!-- .main -->
 
 	<div class="main">
