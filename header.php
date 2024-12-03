@@ -49,6 +49,9 @@
         'theme_location' => 'main_menu'
       ) );
     ?>
+
+		<?php get_search_form(); ?>
+		
 	</nav><!-- .main -->
 
 	<div class="main">
